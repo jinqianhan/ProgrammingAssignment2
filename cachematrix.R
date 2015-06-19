@@ -6,7 +6,7 @@
 ## retrieving the values of the matrix, setting the value of its inverted matrix, and returning its inverted matrix
 
 makeCacheMatrix <- function(x = matrix()) {
-    i <- null
+    i <- NULL
     setM <- function(mat) {
         x <- mat
         i <<- NULL
