@@ -29,36 +29,11 @@ cacheSolve <- function(x, ...) {
     i <- x$geti()
     if(!is.null(i)) {
         message("getting cached inverse")
+        ##print("getting cached inverse")
         return(i)
     }
     data <- x$getM()
     i <- solve(data, ...)
     x$seti(i)
     i
-}
-
-makeVector <- function(x = numeric()) {
-    m <- NULL
-    set <- function(y) {
-        x <<- y
-        m <<- NULL
-    }
-    get <- function() x
-    setmean <- function(mean) m <<- mean
-    getmean <- function() m
-    list(set = set, get = get,
-         setmean = setmean,
-         getmean = getmean)
-}
-
-cachemean <- function(x, ...) {
-    m <- x$getmean()
-    if(!is.null(m)) {
-        message("getting cached data")
-        return(m)
-    }
-    data <- x$get()
-    m <- mean(data, ...)
-    x$setmean(m)
-    m
 }
